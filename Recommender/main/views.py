@@ -20,10 +20,10 @@ def index(request):
             documents_list.append(document)
 
 
-        return render(request, 'main\\home.html', {'documents': documents_list})
+        return render(request, 'home.html', {'documents': documents_list})
     
 
 
-    return render(request, 'main\\home.html')
+    return render(request, 'home.html')
 
 
