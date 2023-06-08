@@ -1,0 +1,69 @@
+{% extends 'main/base.html' %}
+
+{% block input %}
+
+    <form method="post" action="{% url 'index' %}">
+        <div class="input-group">
+        {% csrf_token %}
+        <input aria-label="Text Input" aria-describedby="submitBtn" type="text" class="form-control custom-input" placeholder="Enter your keywords here" name='description'>
+        <button class="btn btn-primary" type="submit" id="submitBtn" onclick="showLoadingMessage()">Recommend</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block recommendations %}
+{% if documents %}
+<table id="recommendationTable" class= "table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Publisher</th>
+        <th>Release Date</th>
+        <th>Metascore</th>
+        <th>User Score</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for document in documents %}
+      <tr>
+        <td>{{ document.title }}</td>
+        <td>{{ document.publisher }}</td>
+        <td>{{ document.release_date|date:"d-m-Y" }}</td>
+        <td>{{ document.metascore }}</td>
+        <td>{{ document.user_score }}</td>
+        <td>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailsModal{{ forloop.counter }}">Details</button>
+          </td>
+      </tr>
+
+      <div class="modal fade" id="detailsModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel{{ document.id }}" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detailsModalLabel{{ document.id }}">{{ document.title }}</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Display the detailed information for the specific document here -->
+            <p class="summary">{{ document.summary }}</p>
+            <!-- Add any additional detailed information you want to display -->
+          </div>          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endif %}
+
+{% endblock %}
