@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y&&_fu!hb28+#pzvfi^#5+pe$oere$z8@q&%b+0us11%ukn9ba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://recommender-django.herokuapp.com/"]
+ALLOWED_HOSTS = ["https://glacial-mountain-75953.herokuapp.com/"]
 
 
 # Application definition
