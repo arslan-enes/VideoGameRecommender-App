@@ -1,8 +1,6 @@
 from django.shortcuts import render
 import requests
 from .pyscripts.pymongo_query import get_documents
-from .pyscripts.bs_get_image import get_image
-
 
 def index(request):
     if request.method == 'POST':
