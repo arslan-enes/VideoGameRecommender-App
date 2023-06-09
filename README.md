@@ -46,6 +46,7 @@ Here are the top library and technologies used throughout the development:
 - Flask-Restful (API that serves as a recommender, taking user text information and returning IDs of recommended games)
 - Django-App (Simply posts requests to the Flask API with user text and retrieves results from the MongoDB database based on the ID)
 - MongoDB (Database containing all the information about the games)
+- HTML-CSS-Javascript (Web Page Interactions)
 
 
 Please feel free to ask about the project from the social links provided at the top.
