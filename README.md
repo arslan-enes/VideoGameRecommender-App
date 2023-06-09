@@ -18,9 +18,6 @@ The machine learning process is handled separately in another service. The Djang
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technical](#technical)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 
 ## Introduction
 
